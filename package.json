@@ -1,0 +1,25 @@
+{
+  "name": "zkaa-recursive-inputs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@zk-kit/eddsa-poseidon": "^1.0.2",
+    "circom_tester": "^0.0.20",
+    "circomlib": "^2.0.5",
+    "poseidon-lite": "^0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkAA-onchain/zkaa-recursive-inputs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zkAA-onchain/zkaa-recursive-inputs/issues"
+  },
+  "homepage": "https://github.com/zkAA-onchain/zkaa-recursive-inputs#readme"
+}
