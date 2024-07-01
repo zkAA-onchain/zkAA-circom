@@ -7,7 +7,10 @@
     "@zk-kit/eddsa-poseidon": "^1.0.2",
     "circom_tester": "^0.0.20",
     "circomlib": "^2.0.5",
-    "poseidon-lite": "^0.2.0"
+    "hardhat": "^2.22.5",
+    "hardhat-gas-reporter": "^2.2.0",
+    "poseidon-lite": "^0.2.0",
+    "snarkjs": "^0.7.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/zkAA-onchain/zkaa-recursive-inputs/issues"
   },
-  "homepage": "https://github.com/zkAA-onchain/zkaa-recursive-inputs#readme"
+  "homepage": "https://github.com/zkAA-onchain/zkaa-recursive-inputs#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0"
+  }
 }
