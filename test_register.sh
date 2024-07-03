@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NUM_INPUTS=3
+NUM_INPUTS=100
 
 # Generate Inputs
 cd circuit/zkaa_register

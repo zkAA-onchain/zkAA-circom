@@ -1,3 +1,11 @@
+# Test Env
+
+MacBook Pro 13-inch, M1, 2020
+- Chip: Apple M1
+- Core: physical 8 / logical 8
+- Memory: 16GB
+- macOS: Sonoma 14.5
+
 # Test Register
 
 ```bash
@@ -20,16 +28,16 @@ Average: 209823
 Standard Deviation: 0 (sqrt(0))
 
 # Time: witness
-Min: 0.263 seconds
-Max: 0.282 seconds
-Average: 0.271 seconds
-Standard Deviation: 0.008041558721209862 seconds
+Min: 0.096 seconds
+Max: 0.10500000000000001 seconds
+Average: 0.09882000000000005 seconds
+Standard Deviation: 0.0023722563099294303 seconds
 
 # Time: proof
-Min: 1.178 seconds
-Max: 1.201 seconds
-Average: 1.1893333333333334 seconds
-Standard Deviation: 0.009392668535736967 seconds
+Min: 0.717 seconds
+Max: 0.804 seconds
+Average: 0.7617100000000003 seconds
+Standard Deviation: 0.01642637817657929 second
 ```
 
 # Test Publish
@@ -54,16 +62,16 @@ Average: 203066
 Standard Deviation: 0 (sqrt(0))
 
 # Time: witness
-Min: 0.142 seconds
-Max: 0.146 seconds
-Average: 0.1443333333333333 seconds
-Standard Deviation: 0.0016996731711975965 seconds
+Min: 0.045 seconds
+Max: 0.053 seconds
+Average: 0.047320000000000036 seconds
+Standard Deviation: 0.0012796874618437124 seconds
 
 # Time: proof
-Min: 0.926 seconds
-Max: 0.982 seconds
-Average: 0.9493333333333333 seconds
-Standard Deviation: 0.023795424396766313 seconds
+Min: 0.437 seconds
+Max: 0.512 seconds
+Average: 0.4733299999999999 seconds
+Standard Deviation: 0.014783135661962916 seconds
 ```
 
 ---
