@@ -23,7 +23,7 @@ async function runWorker(roundStart, roundEnd, threadIndex) {
     return new Promise((resolve, reject) => {
         console.log(`Starting worker for rounds ${roundStart} to ${roundEnd}, threadIndex: ${threadIndex}`);
         const worker = new Worker(
-            path.join(__dirname, 'publish_worker.js'), // Ensure correct path
+            path.join(__dirname, 'publish_worker.js'),
             {
                 workerData: { roundStart, roundEnd, threadIndex, totalRounds: ROUNDS }
             }

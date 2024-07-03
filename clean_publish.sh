@@ -9,9 +9,10 @@ rm circuit/zkaa_publish/publish.r1cs
 rm circuit/zkaa_publish/publish.sym
 
 rm contracts/verifier_publish.sol
+rm contracts/PublishGasHelper.sol
 
 rm setup/verification_key.json
-rm setup/zkaa_final.zkey
+rm setup/zkaa_final_12.zkey
 
 rm -rf test/data/publish
 rm -rf test/data/publish_time_proof
