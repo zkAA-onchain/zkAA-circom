@@ -1,5 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("hardhat-gas-reporter");
+// require("hardhat-gas-reporter");
 
 module.exports = {
   solidity: {
@@ -11,5 +11,5 @@ module.exports = {
       },
     },
   },
-  gasReporter: { enabled: true },
+  // gasReporter: { enabled: true },
 };

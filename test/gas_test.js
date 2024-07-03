@@ -3,6 +3,19 @@ const { ethers } = require("hardhat");
 const snarkjs = require("snarkjs");
 const fs = require("fs");
 
+const circuit = process.env.circuit;
+let directory;
+let helper;
+if (circuit === "register") {
+  directory = "./test/data/register/";
+  helper = "RegisterGasHelper";
+} else if (circuit === "publish") {
+  directory = "./test/data/publish/";
+  helper = "PublishGasHelper";
+} else {
+  throw "circuit=[register|publish] env required.";
+}
+
 async function gasCalculation(gasUsed) {
   const numbers = gasUsed.map(Number);
 
@@ -26,36 +39,34 @@ async function gasCalculation(gasUsed) {
 }
 
 describe("Groth16", function () {
-  describe("Publish", function () {
-    it("Should return true when proof is correct", async function () {
-      const verifier = await ethers.deployContract("PublishGasHelper");
-      await verifier.waitForDeployment();
+  it("Should return true when proof is correct", async function () {
+    const verifier = await ethers.deployContract(helper);
+    await verifier.waitForDeployment();
 
-      const proofs = [];
-      const prooflist = fs.readdirSync("./test/data/publish/");
-      prooflist.forEach(function (f) {
-        const calldata = fs.readFileSync("./test/data/publish/" + f, "utf-8");
-        const validJson = `[${calldata}]`;
-        const calldataArray = JSON.parse(validJson);
-        proofs.push(calldataArray);
-      });
-
-      let gasUsed = [];
-      for (let proof of proofs) {
-        const [pA, pB, pC, pubSignals] = proof;
-
-        const view = await verifier.verifyProof(pA, pB, pC, pubSignals);
-        expect(view).to.equal(true);
-
-        const tx = await verifier.verifyProofBenchmark(pA, pB, pC, pubSignals);
-        const res = await tx.wait();
-        // console.log(`Gas used: ${await verifier.gasUsed()}`);
-        // console.log(res);
-
-        gasUsed.push(await verifier.gasUsed());
-      }
-
-      await gasCalculation(gasUsed);
+    const proofs = [];
+    const prooflist = fs.readdirSync(directory);
+    prooflist.forEach(function (f) {
+      const calldata = fs.readFileSync(directory + f, "utf-8");
+      const validJson = `[${calldata}]`;
+      const calldataArray = JSON.parse(validJson);
+      proofs.push(calldataArray);
     });
+
+    let gasUsed = [];
+    for (let proof of proofs) {
+      const [pA, pB, pC, pubSignals] = proof;
+
+      const view = await verifier.verifyProof(pA, pB, pC, pubSignals);
+      expect(view).to.equal(true);
+
+      const tx = await verifier.verifyProofBenchmark(pA, pB, pC, pubSignals);
+      const res = await tx.wait();
+      // console.log(`Gas used: ${await verifier.gasUsed()}`);
+      // console.log(res);
+
+      gasUsed.push(await verifier.gasUsed());
+    }
+
+    await gasCalculation(gasUsed);
   });
 });
